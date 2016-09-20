@@ -1,6 +1,6 @@
 (function () {
     $(document).ready(function () {
-        $('select').on('mousewheel', function (e) {
+        $('select').on('mousewheel DOMMouseScroll', function (e) {
             var select = $(this);
             var options = select.find('option');
             var selected;
