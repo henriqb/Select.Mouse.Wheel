@@ -1,6 +1,6 @@
 (function () {
     $(document).ready(function () {
-        $('select').on('mousewheel DOMMouseScroll', function (e) {
+        $('select').on('mousewheel DOMMouseScroll'/* DOMMouseScroll: Firefox */, function (e) {
             var select = $(this);
             var options = select.find('option');
             var selected;
@@ -8,7 +8,7 @@
                 selected = options.eq(i);
                 if (selected.is(':selected')) { break; }
             }
-            if (e.originalEvent.wheelDelta > 0)
+            if ((e.originalEvent.wheelDelta > 0 /* All other browsers */) || (e.originalEvent.detail < 0 /* Firefox */))
             {
                 selected.prev().prop('selected', true);
 
